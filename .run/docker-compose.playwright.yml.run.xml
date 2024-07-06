@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="docker-compose.playwright.yml" type="docker-deploy" factoryName="dockerfile" editBeforeRun="true" focusToolWindowBeforeRun="true" singleton="false" server-name="Docker">
+    <deployment type="dockerfile">
+      <settings>
+        <option name="containerName" value="https://my.webtechnicom.net" />
+        <option name="sourceFilePath" value="docker-compose.playwright.yml" />
+      </settings>
+    </deployment>
+    <method v="2">
+      <option name="LaunchBrowser.Before.Run" url="https://my.webtechnicom..net" withDebugger="true" />
+    </method>
+  </configuration>
+</component>
