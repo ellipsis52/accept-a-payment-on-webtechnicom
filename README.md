@@ -6,9 +6,16 @@ git clone https://github.com/WebTechnicom/WebTechnicom.git
 Switch to the master branch:
 
 git checkout master
+
+
+
 Install any necessary dependencies using a package manager like npm or yarn:
 
+
+
 npm install
+
+
 Set up your payment gateway integration. This could involve integrating with a service like Stripe, PayPal, or any other payment processor. Follow the documentation provided by the payment gateway service for integration steps.
 
 Implement the necessary frontend and backend code to handle payment processing. This could involve creating payment forms, handling payment callbacks, and updating the database with payment information.
