@@ -2,7 +2,7 @@
 import stripe
 import json
 import os
-
+import logging
 from flask import Flask, render_template, jsonify, request, send_from_directory, redirect
 from dotenv import load_dotenv, find_dotenv
 
@@ -17,6 +17,7 @@ stripe.set_app_info(
 stripe.api_version = '2020-08-27'
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
+logging.basicConfig(level=logging.ERROR)
 static_dir = str(os.path.abspath(os.path.join(__file__ , "..", os.getenv("STATIC_DIR"))))
 app = Flask(__name__, static_folder=static_dir, static_url_path="", template_folder=static_dir)
 
@@ -79,7 +80,8 @@ def create_payment():
     except stripe.error.StripeError as e:
         return jsonify({'error': {'message': str(e)}}), 400
     except Exception as e:
-        return jsonify({'error': {'message': str(e)}}), 400
+        logging.error("An error occurred: %s", str(e))
+        return jsonify({'error': {'message': "An internal error has occurred!"}}), 400
 
 @app.route('/payment/next', methods=['GET'])
 def get_payment_next():
